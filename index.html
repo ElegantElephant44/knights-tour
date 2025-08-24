@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Knight's Tour — Canvas</title>
+  <meta name="description" content="Interactive Knight's Tour. Adjustable 6–8, green valid moves, icon/number visited view, responsive, modal win/lose." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="knight.svg" />
+</head>
+<body>
+  <div class="app">
+    <div class="panel">
+      <div class="header">
+        <div class="title">Knight's Tour</div>
+
+        <div class="toolbar">
+          <div class="group">
+            <label for="size">Board</label>
+            <select id="size" aria-label="Board size">
+              <option value="6">6 × 6</option>
+              <option value="7">7 × 7</option>
+              <option value="8" selected>8 × 8</option>
+            </select>
+          </div>
+
+          <div class="group">
+            <label for="visitedStyle">Visited</label>
+            <select id="visitedStyle" aria-label="Visited cell style">
+              <option value="icon" selected>Knight icon</option>
+              <option value="number">Move number</option>
+            </select>
+          </div>
+
+          <div class="group">
+            <button id="undoBtn" title="Undo (⌘/Ctrl+Z)">Undo</button>
+            <button id="resetBtn" class="ghost" title="Clear board">Reset</button>
+            <button id="newBtn" class="primary" title="Start a fresh tour">New tour</button>
+          </div>
+
+          <div class="status" id="status">Place the knight anywhere to begin.</div>
+        </div>
+      </div>
+
+      <div class="board-shell">
+        <div class="canvas-wrap" id="wrap">
+          <canvas id="board" aria-label="Knight's Tour board" role="img"></canvas>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div>
+          <span class="toast"><span class="dot"></span> Green rings = available moves. Click to move.</span>
+        </div>
+        <div id="toast" class="toast" hidden></div>
+      </div>
+
+      <div class="help">
+        <ul>
+          <li>Rule: visit each square at most once.</li>
+          <li>Keyboard: <span class="kbd">Z</span> or <span class="kbd">⌘/Ctrl</span> + <span class="kbd">Z</span> to Undo, <span class="kbd">R</span> to Reset.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Front-and-center overlay -->
+  <div id="overlay" class="overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+      <h2 id="modalTitle">Title</h2>
+      <p id="modalDesc">Description</p>
+      <div class="actions">
+        <button id="overlayClose">Close</button>
+        <button id="overlayUndo">Undo last</button>
+        <button id="overlayNew" class="primary">New tour</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
