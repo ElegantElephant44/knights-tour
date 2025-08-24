@@ -16,9 +16,7 @@ The Knight's Tour is a classic chess puzzle where the goal is to move a knight t
 ## 🌐 Play Online
 You can play this game online via GitHub Pages:
 
-```
-https://https://elegantelephant44.github.io/knights-tour/
-```
+[Knight's tour](https://elegantelephant44.github.io/knights-tour/)
 
 ## 🛠️ Local Development
 start `python3 -m http.server 5500`
